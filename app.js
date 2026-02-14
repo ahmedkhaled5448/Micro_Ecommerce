@@ -34,7 +34,7 @@ if (existUser)
      return res.status(400).json({msg:"acount already Exsist"})
 
 const hashpassword = await bcrypt.hash(password,10);
-const user = await user.create({
+const user = await User.create({
     username,
     email,
     password: hashpassword,
@@ -76,8 +76,6 @@ app.post("/login", async (req,res)=>{
     }
 
 });
-
-
 
 app.listen(PORT, ()=> {
     console.log("server is running")})
